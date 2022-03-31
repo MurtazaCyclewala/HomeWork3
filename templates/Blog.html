@@ -1,14 +1,27 @@
 <html>
     <head>
         <title>
-            Login Page
+            Blog Page
         </title>
-        <link rel="stylesheet" href="{{url_for('static',filename = 'Login_style.css')}}" >
+        <link rel="stylesheet" href="{{url_for('static',filename = 'Blog_style.css')}}" >
     </head>
     <body style = "margin: auto;
                     width: 30%;
                     margin-top: 5%;
-                    background: linear-gradient(180deg, rgb(0, 0, 0), rgb(48, 48, 48))">
-        
+                    background: linear-gradient(180deg, rgb(255, 2, 2), rgb(253, 123, 123))">
+        <div class = "container">
+            
+            {% for post in posts %}
+            <hr>
+                <div class = "container">
+                    <p>{{ post['Blog'] }} <i>({{ post['name'] }})</i></p>
+                </div>
+            <hr>
+            {% endfor %}
+            
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="login" onclick=location.href="/">Create one</button>
+            </div>
+        </div>
     </body>
 </html>

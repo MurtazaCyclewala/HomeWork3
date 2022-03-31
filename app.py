@@ -84,9 +84,12 @@ def blog():
             blogs.insert_one(
                 {'name' : name , 'Blog' : request.form['blogged']}
             )
-            return render_template('Blog.html')
+            blog = mongo.db.blogs.find()
+            return render_template('Blog.html', posts = blog)
         return render_template(url_for('profile'))
-    return render_template('Blog.html')
+
+    blog = mongo.db.blogs.find()
+    return render_template('Blog.html', posts = blog)
 
 
 @app.route('/logout')
