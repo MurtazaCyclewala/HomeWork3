@@ -61,7 +61,7 @@
                     <label for="blogged" ><b>Blog:</b></label>
                     <input type="text" placeholder ="Enter whats on your mind" name="blogged" required>
 
-                    <button type="button" onclick=location.href="/blog" >Submit your post</button>
+                    <button type="button" onclick=location.href="{{ url_for('blog') }}" >Submit your post</button>
 
                 </div>
             </form>

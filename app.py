@@ -64,7 +64,7 @@ def signup():
 
                 if request.form['blogged']:
                     blog = mongo.db.blogs
-                    blog.insert_one({'name' : request.form['fname']+""+request.form['tname'] , 'Blog' : request.form['blogged']})
+                    blog.insert_one({'name' : request.form['fname']+" "+request.form['tname'] , 'Blog' : request.form['blogged']})
                 return redirect(url_for('profile'))
             return render_template('SignUp.html',error="Please Enter Same password")
         return render_template('SignUp.html',error="That Username Exists")
@@ -86,7 +86,7 @@ def blog():
             )
             blog = mongo.db.blogs.find()
             return render_template('Blog.html', posts = blog)
-        return render_template(url_for('profile'))
+        return redirect('/')
 
     blog = mongo.db.blogs.find()
     return render_template('Blog.html', posts = blog)
@@ -95,7 +95,7 @@ def blog():
 @app.route('/logout')
 def logOut():
     session.pop('username',None)
-    return redirect('/')
+    return redirect(url_for('profile'))
 
 if __name__ == "__main__":
     app.run(host = "localhost",port =5000,debug = True)

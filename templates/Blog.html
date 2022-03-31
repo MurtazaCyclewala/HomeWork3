@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>
-            Blog Page
+            Story Page
         </title>
         <link rel="stylesheet" href="{{url_for('static',filename = 'Blog_style.css')}}" >
     </head>
@@ -12,11 +12,9 @@
         <div class = "container">
             
             {% for post in posts %}
-            <hr>
                 <div class = "container">
                     <p>{{ post['Blog'] }} <i>({{ post['name'] }})</i></p>
                 </div>
-            <hr>
             {% endfor %}
             
             <div class="container" style="background-color:#f1f1f1">
