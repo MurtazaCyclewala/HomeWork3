@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>
+            Profile Page
+        </title>
+        <link rel="stylesheet" href="{{url_for('static',filename = 'Profile_style.css')}}" >
+    </head>
+    <body style = "margin: auto;
+                    width: 30%;
+                    margin-top: 5%;
+                    background: linear-gradient(180deg, rgb(1, 197, 27), rgb(1, 97, 27))">
+        <div class = "form1">
+            <div class="imgcontainer">
+                <img src= {{ img }} class="avatar">
+              </div>
+            <h1 style = "font-size: 33px; 
+                        color: brown;
+                        text-align: center;">
+                Your Profile Page
+            </h1>
+            <table align="center">
+                <tr>
+                    <th colspan="2" style="text-align: center;
+                                            font-size: 32px;">
+                        Profile Information
+                    </th>
+                </tr>
+                <tr>
+                    <td>First Name</td>
+                    <td> {{ fname }} </td>
+                </tr>
+                <tr>
+                    <td>Second Name</td>
+                    <td> {{ sname }} </td>
+                </tr>
+                <tr>
+                    <td>Third Name</td>
+                    <td> {{ tname }} </td>
+                </tr>
+                <tr>
+                    <td>Birthday</td>
+                    <td> {{ birth }} </td>
+                </tr>
+                <tr>
+                    <td>Field Of Interest</td>
+                    <td> {{ field }} </td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td> {{ gender }} </td>
+                </tr>
+            </table>
+
+            <button type="button" class="signbttn" onclick=location.href="{{url_for('logOut')}}">LogOut</button>
+            
+            <form action="{{ url_for('blog') }}"  method=POST>
+                <p class=error style = "color: red;
+                                        text-align: center;"><strong></strong> {{ error }} </p>
+                <div class="container">
+
+                    <label for="blogged" ><b>Blog:</b></label>
+                    <input type="text" placeholder ="Enter whats on your mind" name="blogged" required>
+
+                    <button type="button" onclick=location.href="/blog" >Submit your post</button>
+
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
